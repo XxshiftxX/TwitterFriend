@@ -1,0 +1,9 @@
+D:\Programing\CSharp\ImageProcessorStudy\ImageProcessorStudy\bin\Debug\ImageProcessorStudy.exe.config
+D:\Programing\CSharp\ImageProcessorStudy\ImageProcessorStudy\bin\Debug\ImageProcessorStudy.exe
+D:\Programing\CSharp\ImageProcessorStudy\ImageProcessorStudy\bin\Debug\ImageProcessorStudy.pdb
+D:\Programing\CSharp\ImageProcessorStudy\ImageProcessorStudy\bin\Debug\ImageProcessor.dll
+D:\Programing\CSharp\ImageProcessorStudy\ImageProcessorStudy\bin\Debug\ImageProcessor.xml
+D:\Programing\CSharp\ImageProcessorStudy\ImageProcessorStudy\obj\Debug\ImageProcessorStudy.csprojResolveAssemblyReference.cache
+D:\Programing\CSharp\ImageProcessorStudy\ImageProcessorStudy\obj\Debug\ImageProcessorStudy.csproj.CoreCompileInputs.cache
+D:\Programing\CSharp\ImageProcessorStudy\ImageProcessorStudy\obj\Debug\ImageProcessorStudy.exe
+D:\Programing\CSharp\ImageProcessorStudy\ImageProcessorStudy\obj\Debug\ImageProcessorStudy.pdb
