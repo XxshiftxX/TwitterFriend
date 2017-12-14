@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageProcessorStudy", "ImageProcessorStudy\ImageProcessorStudy.csproj", "{DDCA4DC2-D4E0-4E82-AFB0-5548A3B0E00D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterFrend", "TwitterFrend\TwitterFrend.csproj", "{DDCA4DC2-D4E0-4E82-AFB0-5548A3B0E00D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {08F63398-D70C-495F-B157-40008ACE8ECA}
+		SolutionGuid = {5FBDE661-E3F5-4E9B-B069-507B4EC00FBD}
 	EndGlobalSection
 EndGlobal

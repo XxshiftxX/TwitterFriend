@@ -1,0 +1,9 @@
+D:\Programing\CSharp\TwitterFriend\TwitterFrend\bin\Debug\ImageProcessorStudy.exe.config
+D:\Programing\CSharp\TwitterFriend\TwitterFrend\bin\Debug\ImageProcessorStudy.exe
+D:\Programing\CSharp\TwitterFriend\TwitterFrend\bin\Debug\ImageProcessorStudy.pdb
+D:\Programing\CSharp\TwitterFriend\TwitterFrend\bin\Debug\ImageProcessor.dll
+D:\Programing\CSharp\TwitterFriend\TwitterFrend\bin\Debug\ImageProcessor.xml
+D:\Programing\CSharp\TwitterFriend\TwitterFrend\obj\Debug\TwitterFrend.csprojResolveAssemblyReference.cache
+D:\Programing\CSharp\TwitterFriend\TwitterFrend\obj\Debug\TwitterFrend.csproj.CoreCompileInputs.cache
+D:\Programing\CSharp\TwitterFriend\TwitterFrend\obj\Debug\ImageProcessorStudy.exe
+D:\Programing\CSharp\TwitterFriend\TwitterFrend\obj\Debug\ImageProcessorStudy.pdb
