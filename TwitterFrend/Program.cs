@@ -47,7 +47,7 @@ namespace ImageProcessorStudy
     }
     class TwitterFriend
     {
-        ImageFactory _mainImageFactory;
+        public ImageFactory _mainImageFactory;
 
         public enum Format
         {
@@ -69,6 +69,23 @@ namespace ImageProcessorStudy
         {
             _mainImageFactory.Format(format)
                 .Save(path);
+        }
+
+        public void SetHighLight(Point position, Size size, Color color)
+        {
+            ImageLayer imageLayer = new ImageLayer();
+            ResizeLayer resizeLayer = new ResizeLayer(size);
+            resizeLayer.ResizeMode = ResizeMode.Stretch;
+            ImageFactory temp = new ImageFactory();
+            temp.Load(new MemoryStream(File.ReadAllBytes(@"D:\TFTest\Square.png")))
+                .Resize(resizeLayer)
+                .ReplaceColor(Color.White, color);
+
+            imageLayer.Image = temp.Image;
+            imageLayer.Opacity = 70;
+            imageLayer.Position = position;
+
+            _mainImageFactory.Overlay(imageLayer);
         }
 
         public void SetImage(string path, Point position, Size size, ResizeMode mode = ResizeMode.Crop, AnchorPosition anchor = AnchorPosition.Center)
@@ -127,12 +144,16 @@ namespace ImageProcessorStudy
             t.Start();
 
             while (!isLoopFinishied) ;
-            
+
+            TwitterFriend tff = new TwitterFriend(@"D:\TFTest\Square.png");
+            tff._mainImageFactory.ReplaceColor(Color.White, Color.AliceBlue)
+                .Save(@"D:\TFTest\Sq.png");
 
             TwitterFriend tf = new TwitterFriend(result);
             tf.SetImage(@"D:\TFTest\miku.jpg", new Point(96, 273), new Size(170, 170), anchor: AnchorPosition.Right);
             tf.SetText("시프트", 28, new Point(15, 155), new RGBColor("FFFFFF"));
             tf.SetText("레오루, 우미쿤", 28, new Point(174, 155), new RGBColor(15, 15, 15));
+            tf.SetHighLight(new Point(404, 52), new Size(43, 14), Color.Black);
             tf.Export(@"D:\TFTest\result.jpg");
         }
     }
