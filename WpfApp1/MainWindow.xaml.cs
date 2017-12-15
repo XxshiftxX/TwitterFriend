@@ -11,10 +11,11 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
+//using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Drawing;
 using TwitterFriends;
 using AnchorPosition = ImageProcessor.Imaging.AnchorPosition;
 
@@ -27,7 +28,10 @@ namespace WpfApp1
     {
         TwitterFriend twitterFriend;
 
+        BitmapImage originalImage = new BitmapImage();
+        MemoryStream originalMemory = new MemoryStream();
         string _selectedImage;
+        string _selectedTextColor;
         private Panel[] Tabs = new Panel[2];
 
         public MainWindow()
@@ -44,16 +48,14 @@ namespace WpfApp1
             {
                 imageByte = File.ReadAllBytes(fileDialog.FileName);
             }
+            originalMemory = new MemoryStream(imageByte);
+            twitterFriend = new TwitterFriend(originalMemory);
 
-            var image = new BitmapImage();
-            var mem = new MemoryStream(imageByte);
-            twitterFriend = new TwitterFriend(mem);
+            originalImage.BeginInit();
+            originalImage.StreamSource = originalMemory;
+            originalImage.EndInit();
 
-            image.BeginInit();
-            image.StreamSource = mem;
-            image.EndInit();
-
-            FrameImage.Source = image;
+            FrameImage.Source = originalImage;
         }
 
         private void resetImage()
@@ -100,6 +102,40 @@ namespace WpfApp1
                 s.Visibility = Visibility.Hidden;
             }
             textTab.Visibility = Visibility.Visible;
+        }
+
+        private void text_ApplyButton_Click(object sender, RoutedEventArgs e)
+        {
+            twitterFriend.SetText(
+                text_TextBox.Text, 
+                28, 
+                new System.Drawing.Point(int.Parse(text_XPositionBox.Text), int.Parse(text_YPositionBox.Text)), 
+                Color.FromArgb(Convert.ToInt32(_selectedTextColor, 16))
+                );
+            resetImage();
+        }
+
+        private void text_ColorButton_Click(object sender, RoutedEventArgs e)
+        {
+            _selectedTextColor = text_ColorTextBox.Text;
+
+            string sr = text_ColorTextBox.Text.Substring(0, 2);
+            string sg = text_ColorTextBox.Text.Substring(2, 2);
+            string sb = text_ColorTextBox.Text.Substring(4, 2);
+
+            text_ColorRectangle.Fill = new System.Windows.Media.SolidColorBrush(
+                System.Windows.Media.Color.FromRgb((byte)Convert.ToInt32(sr, 16), (byte)Convert.ToInt32(sg, 16), (byte)Convert.ToInt32(sb, 16)));
+        }
+
+        private void resetButton_Click(object sender, RoutedEventArgs e)
+        {
+            twitterFriend = new TwitterFriend(originalMemory);
+
+            originalImage.BeginInit();
+            originalImage.StreamSource = originalMemory;
+            originalImage.EndInit();
+
+            FrameImage.Source = originalImage;
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="720" Width="1280">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
@@ -18,17 +18,41 @@
         </Grid.ColumnDefinitions>
         <Rectangle Grid.Column="1" Fill="Black"/>
         <Image x:Name="FrameImage" Grid.Column="1" />
-        <StackPanel x:Name="imageTab" Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1">
+        <StackPanel Visibility="Hidden" x:Name="imageTab" Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1">
             <Button x:Name="image_SelectButton" Height="20" Margin="5" Click="image_SelectButton_Click" >이미지 찾기</Button>
             <Button x:Name="image_ApplyButton" Height="20" Margin="5" Click="profileButton_Click">등록</Button>
         </StackPanel>
 
-        <StackPanel x:Name="textTab" Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1">
-            
+        <StackPanel x:Name="textTab" Orientation="Vertical" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
+            <TextBox x:Name="text_TextBox" Height="30" Margin="20, 10"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="text_XPositionBox" Height="30" Margin="20, 10"/>
+                <TextBox x:Name="text_YPositionBox" Height="30" Margin="20, 10" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="text_ColorTextBox" Margin="20, 10" Height="30"/>
+                <Rectangle x:Name="text_ColorRectangle" Grid.Column="2" Height="30" Margin="20, 10" Fill="Black"/>
+                <Button x:Name="text_ColorButton" Grid.Column="1" Height="30" Margin="20 10" Click="text_ColorButton_Click" >색 변경</Button>
+                <Button x:Name="text_ApplyButton" Grid.Column="3" Height="30" Margin="20 10" Click="text_ApplyButton_Click">삽입해라 애송이</Button>
+            </Grid>
+
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="2">
             <Button x:Name="imageTabButton" Margin="3" Width="80" Click="imageTabButton_Click">이미지</Button>
             <Button x:Name="textTabButton" Margin="3" Width="80" Click="textTabButton_Click">텍스트</Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="2">
+            <Button x:Name="resetButton" Margin="3" Width="80" Click="resetButton_Click" >리~셋</Button>
         </StackPanel>
     </Grid>
 </Window>
