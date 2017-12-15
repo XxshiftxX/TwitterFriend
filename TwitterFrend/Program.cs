@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using System.Drawing.Text;
 using System.Threading;
 
-namespace ImageProcessorStudy
+namespace TwitterFriends
 {
     class RGBColor
     {
@@ -45,19 +45,20 @@ namespace ImageProcessorStudy
             }
         }
     }
-    class TwitterFriend
+    public class TwitterFriend
     {
         public ImageFactory _mainImageFactory;
-
-        public enum Format
-        {
-            png, jpg
-        }
 
         public TwitterFriend(string path)
         {
             _mainImageFactory = new ImageFactory();
             _mainImageFactory.Load( new MemoryStream(File.ReadAllBytes(path)) );
+        }
+
+        public TwitterFriend(MemoryStream memory)
+        {
+            _mainImageFactory = new ImageFactory();
+            _mainImageFactory.Load(memory);
         }
 
         public void Export(string path)
@@ -103,12 +104,12 @@ namespace ImageProcessorStudy
             _mainImageFactory.Overlay(imageLayer);
         }
 
-        public void SetText(string text, int size, Point position, RGBColor color)
+        public void SetText(string text, int size, Point position, Color color)
         {
             TextLayer textLayer = new TextLayer();
 
             textLayer.Text = text;
-            textLayer.FontColor = color.color;
+            textLayer.FontColor = color;
             textLayer.FontFamily = new FontFamily("나눔스퀘어 Light");
             textLayer.FontSize = size;
             textLayer.Style = FontStyle.Regular;
@@ -151,8 +152,8 @@ namespace ImageProcessorStudy
 
             TwitterFriend tf = new TwitterFriend(result);
             tf.SetImage(@"D:\TFTest\miku.jpg", new Point(96, 273), new Size(170, 170), anchor: AnchorPosition.Right);
-            tf.SetText("시프트", 28, new Point(15, 155), new RGBColor("FFFFFF"));
-            tf.SetText("레오루, 우미쿤", 28, new Point(174, 155), new RGBColor(15, 15, 15));
+            tf.SetText("시프트", 28, new Point(15, 155), Color.FromArgb(Convert.ToInt32("000000", 16)));
+            tf.SetText("레오루, 우미쿤", 28, new Point(174, 155), Color.FromArgb(15,15,15));
             tf.SetHighLight(new Point(404, 52), new Size(43, 14), Color.Black);
             tf.Export(@"D:\TFTest\result.jpg");
         }
