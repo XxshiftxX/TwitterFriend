@@ -28,8 +28,7 @@ namespace WpfApp1
     {
         TwitterFriend twitterFriend;
 
-        BitmapImage originalImage = new BitmapImage();
-        MemoryStream originalMemory = new MemoryStream();
+        string originalFileName;
         string _selectedImage;
         string _selectedTextColor;
         private Panel[] Tabs = new Panel[2];
@@ -37,17 +36,20 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            
-            byte[] imageByte = new byte[1] { 1 };
-
             Tabs[0] = textTab;
             Tabs[1] = imageTab;
 
             OpenFileDialog fileDialog = new OpenFileDialog();
             if(fileDialog.ShowDialog() == true)
             {
-                imageByte = File.ReadAllBytes(fileDialog.FileName);
+                originalFileName = fileDialog.FileName;
+                
             }
+            byte[] imageByte = new byte[1] { 1 };
+            BitmapImage originalImage = new BitmapImage();
+            MemoryStream originalMemory = new MemoryStream();
+
+            imageByte = File.ReadAllBytes(originalFileName);
             originalMemory = new MemoryStream(imageByte);
             twitterFriend = new TwitterFriend(originalMemory);
 
@@ -129,6 +131,12 @@ namespace WpfApp1
 
         private void resetButton_Click(object sender, RoutedEventArgs e)
         {
+            byte[] imageByte = new byte[1] { 1 };
+            BitmapImage originalImage = new BitmapImage();
+            MemoryStream originalMemory = new MemoryStream();
+
+            imageByte = File.ReadAllBytes(originalFileName);
+            originalMemory = new MemoryStream(imageByte);
             twitterFriend = new TwitterFriend(originalMemory);
 
             originalImage.BeginInit();
