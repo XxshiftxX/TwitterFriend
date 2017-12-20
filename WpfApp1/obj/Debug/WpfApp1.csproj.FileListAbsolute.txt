@@ -17,3 +17,7 @@ D:\Programing\CSharp\TwitterFriend\WpfApp1\bin\Debug\ImageProcessorStudy.exe
 D:\Programing\CSharp\TwitterFriend\WpfApp1\bin\Debug\ImageProcessorStudy.pdb
 D:\Programing\CSharp\TwitterFriend\WpfApp1\bin\Debug\ImageProcessorStudy.exe.config
 D:\Programing\CSharp\TwitterFriend\WpfApp1\bin\Debug\ImageProcessor.xml
+D:\Programing\CSharp\TwitterFriend\WpfApp1\obj\Debug\Create.g.cs
+D:\Programing\CSharp\TwitterFriend\WpfApp1\obj\Debug\Menu.g.cs
+D:\Programing\CSharp\TwitterFriend\WpfApp1\obj\Debug\Create.baml
+D:\Programing\CSharp\TwitterFriend\WpfApp1\obj\Debug\Menu.baml

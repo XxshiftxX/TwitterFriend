@@ -47,6 +47,32 @@
             </Grid>
 
         </StackPanel>
+
+        <StackPanel x:Name="highlightTab" Orientation="Vertical" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
+            <TextBox x:Name="highlight_TextBox" Height="30" Margin="20, 10"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="highlight_XPositionBox" Height="30" Margin="20, 10"/>
+                <TextBox x:Name="highlight_YPositionBox" Height="30" Margin="20, 10" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="highlight_ColorTextBox" Margin="20, 10" Height="30"/>
+                <Rectangle x:Name="highlight_ColorRectangle" Grid.Column="2" Height="30" Margin="20, 10" Fill="Black"/>
+                <Button x:Name="highlight_ColorButton" Grid.Column="1" Height="30" Margin="20 10" Click="text_ColorButton_Click" >색 변경</Button>
+                <Button x:Name="highlight_ApplyButton" Grid.Column="3" Height="30" Margin="20 10" Click="text_ApplyButton_Click">삽입해라 애송이</Button>
+            </Grid>
+
+        </StackPanel>
+
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="2">
             <Button x:Name="imageTabButton" Margin="3" Width="80" Click="imageTabButton_Click">이미지</Button>
             <Button x:Name="textTabButton" Margin="3" Width="80" Click="textTabButton_Click">텍스트</Button>
